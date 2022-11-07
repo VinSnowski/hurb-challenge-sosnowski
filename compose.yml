@@ -1,0 +1,32 @@
+version: '3.9'
+volumes:
+  mlruns:
+    driver: local
+  catboost_info:
+    driver: local
+
+services:
+  mlflow:
+    image: mlflow
+    container_name: mlflow
+    build: 
+      context: .
+      dockerfile: Dockerfile_mlflow
+    volumes:
+     - mlruns:/mlruns
+     - catboost_info:/catboost_info
+    ports:
+     - 5000:5000
+    command: mlflow server --host 0.0.0.0
+
+  bentoml:
+    image: bentoml
+    container_name: bentoml
+    build: 
+      context: .
+      dockerfile: Dockerfile_bentoml
+    ports:
+     - 3000:3000
+    depends_on:
+     - mlflow
+
