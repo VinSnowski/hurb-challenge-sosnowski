@@ -55,32 +55,3 @@ class TestData(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
-{
-"hotel",
-"meal",
-"market_segment",
-"distribution_channel",
-"reserved_room_type",
-"deposit_type",
-"customer_type",
-"year",
-"month",
-"day",
-"lead_time",
-"arrival_date_week_number",
-"arrival_date_day_of_month",
-"stays_in_weekend_nights",
-"stays_in_week_nights",
-"adults",
-"children",
-"babies",
-"is_repeated_guest",
-"previous_cancellations",
-"previous_bookings_not_canceled",
-"agent",
-"company",
-"adr",
-"required_car_parking_spaces",
-"total_of_special_requests",
-}

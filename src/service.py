@@ -12,7 +12,7 @@ svc = bentoml.Service("catboost", runners=[catboost_runner])
 
 
 @svc.api(input=JSON(), output=JSON())
-def predict(input_X: dict):
+def predict(input_X: dict) -> dict:
     X, y = FeatureBuilder.build_features(pd.json_normalize(input_X))
     result = catboost_runner.predict.run(X)
 
