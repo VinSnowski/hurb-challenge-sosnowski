@@ -16,7 +16,4 @@ def predict(input_X: dict) -> dict:
     X, y = FeatureBuilder.build_features(pd.json_normalize(input_X))
     result = catboost_runner.predict.run(X)
 
-    if result[0] == 0:
-        return {"predicts_cancelling": False}
-    else:
-        return {"predicts_cancelling": True}
+    return {"predicts_cancelling": False} if result[0] == 0 else {"predicts_cancelling": True}
