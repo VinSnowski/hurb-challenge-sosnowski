@@ -6,7 +6,7 @@
 
 ### Setup and run
 
-To start the application, simply run
+To start the application, go to the root directory and simply run
 
 ```bash
 docker compose up
@@ -54,7 +54,7 @@ The API requires a JSON input with the following parameters, such as:
 }
 ```
 
-And the response will also be a json with the following format:
+And the response will also be a JSON with the following format:
 
 ```json
 {
