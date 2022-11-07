@@ -6,11 +6,13 @@ COPY requirements.txt .
 COPY bentofile.yaml .
 COPY setup.py .
 COPY commands.sh .
+COPY .env .
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y git && pip install -r requirements.txt
 
 COPY ./data ./data
 COPY ./src ./src
+COPY ./test ./test
 EXPOSE 3000
 
 ENTRYPOINT ["bash", "commands.sh"]

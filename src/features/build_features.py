@@ -123,4 +123,5 @@ class FeatureBuilder:
 
 
 if __name__ == "__main__":
-    X_train, X_test, y_train, y_test = FeatureBuilder.full_pipeline(filename="hotel_bookings.csv", save_processed_data=True)
+    filename = os.environ["RAW_DATA_FILENAME"]
+    X_train, X_test, y_train, y_test = FeatureBuilder.full_pipeline(filename=filename, save_processed_data=True)

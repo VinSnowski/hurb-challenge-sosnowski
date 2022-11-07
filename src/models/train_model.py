@@ -23,10 +23,11 @@ class CatBooostModel:
         self.conf = None
 
     def setup(self) -> None:
+        filename = os.environ["RAW_DATA_FILENAME"]
 
-        self.X_train, self.X_test, self.y_train, self.y_test = FeatureBuilder.full_pipeline("hotel_bookings.csv")
+        self.X_train, self.X_test, self.y_train, self.y_test = FeatureBuilder.full_pipeline(filename)
 
-        mlflow.set_tracking_uri("http://mlflow:5000")
+        mlflow.set_tracking_uri(os.environ["MLFLOW_SERVER_URL"])
         mlflow.set_experiment("hotel-bookings")
 
         with mlflow.start_run():
@@ -41,7 +42,7 @@ class CatBooostModel:
             self.conf = confusion_matrix(self.y_test, y_pred)
             t_n, f_p, f_n, t_p = self.conf.ravel()
 
-            mlflow.log_metric("TruePos", t_n)
+            mlflow.log_metric("TrueNeg", t_n)
             mlflow.log_metric("FalsePos", f_p)
             mlflow.log_metric("FalseNeg", f_n)
             mlflow.log_metric("TruePos", t_p)
@@ -49,7 +50,7 @@ class CatBooostModel:
             mlflow.log_metric("RecallScore", self.recall)
             mlflow.log_metric("PrecisionScore", self.precision)
 
-            logging.info(f"Model generated with accuracy: {self.accuracy}, recall: {self.recall} and precision {self.precision}")
+            logging.info(f"Model generated with accuracy: {self.accuracy}, recall: {self.recall} and precision: {self.precision}")
 
             self.logged_model = mlflow.catboost.log_model(self.classifier, "catboost")
 
