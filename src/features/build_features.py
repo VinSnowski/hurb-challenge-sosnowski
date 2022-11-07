@@ -90,7 +90,7 @@ class FeatureBuilder:
         return X, y
 
     @staticmethod
-    def get_train_test_sets(X: pd.DataFrame(), y: pd.Series(), save_processed_data=True) -> Tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series]:
+    def get_train_test_sets(X: pd.DataFrame, y: pd.Series, save_processed_data=True) -> Tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series]:
 
         # splitting data into training set and test set
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.30)
