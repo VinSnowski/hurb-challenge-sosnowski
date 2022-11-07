@@ -62,7 +62,43 @@ And the response will also be a JSON with the following format:
 }
 ```
 
+An example of calling the API via bash with curl:
 
+```bash
+curl -v -H "Content-Type: application/json" -d '{
+"hotel": "Resort Hotel",
+"lead_time": 96,
+"arrival_date_year": 2015,
+"arrival_date_month": "July",
+"arrival_date_week_number": 27,
+"arrival_date_day_of_month": 2,
+"stays_in_weekend_nights": 2,
+"stays_in_week_nights": 5,
+"adults": 2,
+"children": 0.0,
+"babies": 0,
+"meal": "BB",
+"country": "ESP",
+"market_segment": "Offline TA/TO",
+"distribution_channel": "TA/TO",
+"is_repeated_guest": 0,
+"previous_cancellations": 0,
+"previous_bookings_not_canceled": 0,
+"reserved_room_type": "A",
+"assigned_room_type": "A",
+"booking_changes": 0,
+"deposit_type": "No Deposit",
+"agent": 134.0,
+"company": 0,
+"days_in_waiting_list": 0,
+"customer_type": "Transient",
+"adr": 58.95,
+"required_car_parking_spaces": 0,
+"total_of_special_requests": 1,
+"reservation_status": "Check-Out",
+"reservation_status_date": "2015-07-09"
+}' http://localhost:3000/predict
+```
 
 Project Organization
 ------------
