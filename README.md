@@ -12,7 +12,7 @@ To start the application, simply run
 docker compose up
 ```
 
-Two docker containers will be running. The model will be available for POST requests at [`http://localhost:3000/predict`](http://localhost:3000/predict) and the MLFlow server is located at [`http://localhost:5000/`](http://localhost:3000/predict)
+Two docker containers will be running, bentoml and mlflow. A model is generated at launch and is readily available for POST requests at [`http://localhost:3000/predict`](http://localhost:3000/predict) and the MLFlow server is located at [`http://localhost:5000/`](http://localhost:3000/predict)
 
 ### Usage
 
