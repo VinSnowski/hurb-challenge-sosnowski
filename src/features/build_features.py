@@ -97,7 +97,7 @@ class FeatureBuilder:
 
         if save_processed_data:
 
-            processed_data_path = "./data/processed/"
+            processed_data_path = os.environ["PROCESSED_DATA_PATH"]
 
             X_train.to_csv(processed_data_path + "X_train.csv", index=False)
             X_test.to_csv(processed_data_path + "X_test.csv", index=False)
